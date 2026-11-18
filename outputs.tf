@@ -2,6 +2,10 @@ output "resiliencehubv2_service_lookup_arn" {
   description = "Map of arn values across all resiliencehubv2_service_lookup, keyed the same as var.resiliencehubv2_service_lookup"
   value       = { for k, v in data.aws_resiliencehubv2_service.resiliencehubv2_service_lookup : k => v.arn if v.arn != null && length(v.arn) > 0 }
 }
+output "resiliencehubv2_service_lookup_associated_system" {
+  description = "Map of associated_system values across all resiliencehubv2_service_lookup, keyed the same as var.resiliencehubv2_service_lookup"
+  value       = { for k, v in data.aws_resiliencehubv2_service.resiliencehubv2_service_lookup : k => v.associated_system if v.associated_system != null && length(v.associated_system) > 0 }
+}
 output "resiliencehubv2_service_lookup_description" {
   description = "Map of description values across all resiliencehubv2_service_lookup, keyed the same as var.resiliencehubv2_service_lookup"
   value       = { for k, v in data.aws_resiliencehubv2_service.resiliencehubv2_service_lookup : k => v.description if v.description != null && length(v.description) > 0 }
